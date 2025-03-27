@@ -1,0 +1,250 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main %}
+    <!-- Carousel Start -->
+    <div class="container-fluid p-0 mb-5">
+        <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="w-100" src="{% static 'img/carousel-1.jpg' %}" alt="Image">
+                    <div class="carousel-caption">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-7 pt-5">
+                                    <h1 class="display-4 text-white mb-3 animated slideInDown">Let's Change The World With Humanity</h1>
+                                    <p class="fs-5 text-white-50 mb-5 animated slideInDown">Wherever humanity has made that hardest of all starts and lifted itself out of mere brutality is a sacred spot.</p>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="w-100" src="{% static 'img/carousel-2.jpg' %}" alt="Image">
+                    <div class="carousel-caption">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-7 pt-5">
+                                    <h1 class="display-4 text-white mb-3 animated slideInDown">Let's Save More Lifes With Our Helping Hand</h1>
+                                    <p class="fs-5 text-white-50 mb-5 animated slideInDown">Only a life lived for others is a life worthwhile</p>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#header-carousel"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    <!-- Carousel End -->
+
+
+
+
+    <!-- Causes Start -->
+    <div class="container-xxl bg-light my-5 py-5">
+        <div class="container py-5">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+                <div class="d-inline-block rounded-pill bg-secondary text-primary py-1 px-3 mb-3">Feature Causes</div>
+                <h1 class="display-6 mb-5">Multi-Type Donations</h1>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="causes-item d-flex flex-column bg-white border-top border-5 border-primary rounded-top overflow-hidden h-100">
+                        <div class="text-center p-4 pt-0">
+                            <div class="d-inline-block bg-primary text-white rounded-bottom fs-5 pb-1 px-3 mb-4">
+                                <small>Education</small>
+                            </div>
+                            <h5 class="mb-3">Education For Indian Children</h5>
+                            <p>"Knowledge is power, and your gift unlocks it."</p>
+                            
+                        </div>
+                        <div class="position-relative mt-auto">
+                            <img class="img-fluid" src="{% static 'img/courses-1.jpg' %}" alt="">
+                            <div class="causes-overlay">  </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="causes-item d-flex flex-column bg-white border-top border-5 border-primary rounded-top overflow-hidden h-100">
+                        <div class="text-center p-4 pt-0">
+                            <div class="d-inline-block bg-primary text-white rounded-bottom fs-5 pb-1 px-3 mb-4">
+                                <small>Pure Water</small>
+                            </div>
+                            <h5 class="mb-3">Ensure Pure Drinking Water</h5>
+                            <p>"Pure water, pure life. Donate today to make a difference." </p>
+                            
+                        </div>
+                        <div class="position-relative mt-auto">
+                            <img class="img-fluid" src="{% static 'img/courses-2.jpg' %}" alt="">
+                            <div class="causes-overlay">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="causes-item d-flex flex-column bg-white border-top border-5 border-primary rounded-top overflow-hidden h-100">
+                        <div class="text-center p-4 pt-0">
+                            <div class="d-inline-block bg-primary text-white rounded-bottom fs-5 pb-1 px-3 mb-4">
+                                <small>Healthy Life</small>
+                            </div>
+                            <h5 class="mb-3">Ensure Medical Treatment</h5>
+                            <p>"Happiness doesn't result from what we get, but from what we give."</p>
+                           
+                        </div>
+                        <div class="position-relative mt-auto">
+                            <img class="img-fluid" src="{% static 'img/courses-3.jpg' %}" alt="">
+                            <div class="causes-overlay">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Causes End -->
+
+
+    <!-- Service Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+                <div class="d-inline-block rounded-pill bg-secondary text-primary py-1 px-3 mb-3">What We Do</div>
+                <h1 class="display-6 mb-5">Learn More What We Do And Get Involved</h1>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-item bg-white text-center h-100 p-4 p-xl-5">
+                        <img class="img-fluid mb-4" src="{% static 'img/icon-1.png' %}" alt="">
+                        <h4 class="mb-3">Child Education</h4>
+                        <p class="mb-4">To break the cycle of poverty through education by equipping children with the tools, knowledge, and opportunities they need to build a brighter future.</p>
+                        
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="service-item bg-white text-center h-100 p-4 p-xl-5">
+                        <img class="img-fluid mb-4" src="{% static 'img/icon-2.png' %}" alt="">
+                        <h4 class="mb-3">Medical Treatment</h4>
+                        <p class="mb-4"> Medical Treatment is dedicated to providing life-saving treatments, surgeries, medicines, and healthcare support to those in need.</p>
+                        
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="service-item bg-white text-center h-100 p-4 p-xl-5">
+                        <img class="img-fluid mb-4" src="{% static 'img/icon-3.png' %}" alt="">
+                        <h4 class="mb-3">Pure Drinking Water</h4>
+                        <p class="mb-4"> Pure Drinking Water is dedicated to ensuring that every community, school, and family has access to clean and safe water through donations and sustainable solutions.</p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Service End -->
+
+
+    <!-- Donate Start -->
+    <div class="container-fluid donate my-5 py-5" data-parallax="scroll" data-image-src="{% static 'img/carousel-2.jpg' %}">
+        <div class="container py-5">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="d-inline-block rounded-pill bg-secondary text-primary py-1 px-3 mb-3">Donate Now</div>
+                    <h1 class="display-6 text-white mb-5">Thanks For The Results Achieved With You</h1>
+                    <p class="text-white-50 mb-0">We truly appreciate your support. Your contribution has helped us achieve incredible results, and we couldn’t have done it without you. Your generosity makes a real difference, and we are grateful for your kindness. Thank you for being a part of this journey!</p>
+                </div>
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                    <div class="h-100 bg-white p-5">
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control bg-light border-0" id="name" placeholder="Your Name">
+                                        <label for="name">Your Name</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <input type="email" class="form-control bg-light border-0" id="email" placeholder="Your Email">
+                                        <label for="email">Your Email</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="btn-group d-flex justify-content-around">
+                                        <input type="radio" class="btn-check" name="btnradio" id="btnradio1" checked>
+                                        <label class="btn btn-light py-3" for="btnradio1">10</label>
+
+                                        <input type="radio" class="btn-check" name="btnradio" id="btnradio2">
+                                        <label class="btn btn-light py-3" for="btnradio2">20</label>
+
+                                        <input type="radio" class="btn-check" name="btnradio" id="btnradio3">
+                                        <label class="btn btn-light py-3" for="btnradio3">30</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <a class="btn btn-primary px-5" style="height: 50px;" href="{% url 'login_donor' %}">
+                                        Donate Now
+                                        <div class="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
+                                            <i class="fa fa-arrow-right"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Donate End -->
+
+
+    <!-- Testimonial Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+                <div class="d-inline-block rounded-pill bg-secondary text-primary py-1 px-3 mb-3">Testimonial</div>
+                <h1 class="display-6 mb-5">Trusted By Thousands Of People And Nonprofits</h1>
+            </div>
+            <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
+                <div class="testimonial-item text-center">
+                    <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="{% static 'img/jka.jpg' %}" style="width: 100px; height: 100px;">
+                    <div class="testimonial-text rounded text-center p-4">
+                        <p>Your contribution as a successful businessman reflects your commitment to social responsibility and community growth. Your generosity is helping us create a meaningful impact, and we truly appreciate your support in making a difference.</p>
+                        <h5 class="mb-1">Jaimin Patel</h5>
+                        <span class="fst-italic">Businessman</span>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center">
+                    <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="{% static 'img/jes.jpg' %}" style="width: 100px; height: 100px;">
+                    <div class="testimonial-text rounded text-center p-4">
+                        <p>As a doctor, you dedicate your life to healing and saving others. Your generous donation further extends your compassion beyond the clinic, bringing hope and support to those in need. We deeply appreciate your kindness!</p>
+                        <h5 class="mb-1">Divya Vaghela</h5>
+                        <span class="fst-italic">Doctor</span>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center">
+                    <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="{% static 'img/dks.jpg' %}" style="width: 100px; height: 100px;">
+                    <div class="testimonial-text rounded text-center p-4">
+                        <p>Entrepreneurs like you not only drive innovation but also inspire change through generosity. Your contribution fuels our mission, helping us achieve great results and uplift communities. Thank you for making a difference!</p>
+                        <h5 class="mb-1">Yug Mehta</h5>
+                        <span class="fst-italic">Entrepreneur</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial End -->
+
+{% endblock main %}
