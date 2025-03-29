@@ -1,111 +1,76 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Donation & Volunteer System</title>
-    <link rel="icon" type="image/x-icon" href="{% static 'images/helping-hand.png' %}" />
-    <!-- Font Awesome icons (free version)-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" >
-
-    <!-- Google fonts-->  
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;100;300;700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
-
-    <link rel="stylesheet" href="{% static 'css/style-admin.css' %}">
-    <style>
-        .sidebar{
-            background: #0C3373;
-        }        
-        body{
-            background-image: linear-gradient(45deg, #CEDCF3, #738EBB, #CEDCF3);
-        }
-    </style>
-</head>
+    <head>
+        <meta charset="utf-8">
+        <title>Donation & Volunteer System</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="" name="keywords">
+        <meta content="" name="description">
+    
+        <!-- Favicon -->
+        <link href="img/favicon.ico" rel="icon">
+    
+        <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
+        
+        <!-- Icon Font Stylesheet -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    
+        <!-- Libraries Stylesheet -->
+        <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+        <link href="{% static 'lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css' %}" rel="stylesheet" />
+    
+        <!-- Customized Bootstrap Stylesheet -->
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" >
+    
+        <!-- Template Stylesheet -->
+        <link rel="stylesheet" href="{% static 'css/style-admin.css' %}">
+    </head>
 
 <body >
-    <div class="sidebar">
-        <div class="logo_content">
-            <div class="logo">
-                <i id="icon-home" class="fa fa-home" aria-hidden="true"></i>
-                <div class="logo_name">Volunteer</div>
-            </div>
-            <span id="btn-sidebar"><i class="fa fa-bars"  aria-hidden="true"></i></span>
-        </div>
-        <div class="profile_content">
-            <div class="profile">
-                <div class="profile_details">
-                    <img src="{{request.user.volunteer_set.first.userpic.url}}"  alt="" >
-                    <div class="name_job">
-                        <div class="name">{{request.user.first_name}} {{request.user.last_name}}</div>
-                        <div class="email">{{request.user.email}}</div>
-                    </div>
+   
+     <!-- Sidebar Start -->
+     <div class="sidebar pb-3 bg-dark">
+            
+        <nav class="navbar  navbar-light">
+            <a href="{% url 'index_donor' %}" class="navbar-brand mx-4 mb-3">
+                <h3 class="text-primary"></i>OneMission</h3>
+            </a>
+            <div class="d-flex align-items-center ms-4 mb-4">
+                <div class="position-relative rounded-circle border border-5 border-white">
+                    {% if request.user.volunteer_set.all.first.userpic %}
+                        <img class="rounded-circle" src="{{ request.user.volunteer_set.all.first.userpic.url }}" alt="Default Image" style="width: 60px; height: 60px;">
+                    {% endif %}
+                </div>
+                <div class="ms-3 text-white">
+                    <h6 class="mb-0 text-white">{{request.user.first_name}} {{request.user.last_name}}</h6>
+                    <span>Volunteer</span>
                 </div>
             </div>
-        </div>
-        <ul class="nav_list">
-            <!-- <li>
+            <div class="navbar-nav w-100 text-white">
+                <a href="{% url 'index_volunteer' %}" class="nav-item nav-link {% if request.path == '/' %}active{% endif %}"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                <a href="{% url 'collection_req' %}" class="nav-item nav-link {% if request.path == '/Donation Collection Request' %}active{% endif %}"><i class="fa fa-users me-2"></i>Donation Collection Request</a>
+                <a href="#" class="nav-item nav-link {% if request.path == '/Collection History' %}active{% endif %}"><i class="fa fa-info-circle me-2"></i>Collection History</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Elements</a>
+                    <div class="dropdown-menu bg-transparent border-0">
+                        <a href="{% url 'donationrec_volunteer' %}" class="dropdown-item">Donation Received</a>
+                        <a href="{% url 'donationnotrec_volunteer' %}" class="dropdown-item">Donation Not Received</a>
+                        <a href="{% url 'donationdelivered_volunteer' %}" class="dropdown-item">Donation Delivered</a>
+                    </div>
+                </div>
+                <a href="{% url 'profile_volunteer' %}" class="nav-item nav-link {% if request.path == '/Profile' %}active{% endif %}"><i class="fa fa-user me-2"></i>Profile</a>
+                <a href="{% url 'changepwd_volunteer' %}" class="nav-item nav-link {% if request.path == '/Change Password' %}active{% endif %}"><i class="fa fa-key me-2"></i>Change Password</a>
+                <a href="{% url 'logout' %}" class="nav-item nav-link {% if request.path == '/Logout' %}active{% endif %}"><i class="fa fa-sign-out me-2"></i>Logout</a>
                 
-                <i id="icon-search" class="fa fa-search" aria-hidden="true"></i>
-                <input type="text" placeholder="Search...">
-            </li> -->
-            <li>
-                <a href="{% url 'index_volunteer' %}">
-                    <!--grid -->
-                    <i id="icon" class="fa fa-th-large" aria-hidden="true"></i>
-                    <span class="links_name">Dashboard</span>
-                </a>
-            </li>
-            <li >
-                <a href="{% url 'collection_req' %}">
-                    
-                    <i id="icon" class="fa fa-users" aria-hidden="true"></i>
-                    <span class="links_name">Donation Collection Request</span> 
-                    
-                </a> 
-            </li>
-            <li>
-                <a href="#" id="navbarDropdownarea" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i id="icon" id="icon" class="fa fa-info-circle" aria-hidden="true"></i>
-                    <span class="links_name">Collection History</span>
-                    <i class="down-arrow fa-solid fa-angle-down"></i>
-                  </a>
-                  <ul class="dropdown-menu dropdown-menu-dark " aria-labelledby="navbarDropdownarea">
-                    <li><a class="dropdown-item" href="{% url 'donationrec_volunteer' %}">Donation Received</a></li>
-                    <li><a class="dropdown-item" href="{% url 'donationnotrec_volunteer' %}">Donation Not Received</a></li>
-                    <li><a class="dropdown-item" href="{% url 'donationdelivered_volunteer' %}">Donation Delivered</a></li>
-                   </ul>  
-            </li>
-            
-            <li>
-                <a href="{% url 'profile_volunteer' %}">
-                    <!--user -->
-                    <i id="icon" class="fa fa-user" aria-hidden="true"></i>
-                    <span class="links_name">Profile</span>
-                </a> 
-            </li>
-            
-            <li>
-                <a href="{% url 'changepwd_volunteer' %}">
-                    <!--key -->
-                    <i id="icon" class="fa fa-key" aria-hidden="true"></i>
-                    <span class="links_name">Change Password</span>
-                </a> 
-            </li>
-            <li>
-                <a href="{% url 'logout' %}">
-                    <!--logout -->
-                    <i id="icon" class="fa fa-sign-out" aria-hidden="true"></i>
-                    <span class="links_name">Logout</span>
-                </a>
-            </li>
-            
-        </ul>
+            </div>
+        </nav>
     </div>
+    <!-- Sidebar End -->
     <div class="home_content">
         {% block main %}
         {% endblock main %}

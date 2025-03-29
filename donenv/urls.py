@@ -28,7 +28,6 @@ urlpatterns = [
     path("", views.index, name="index"),
     path("gallery", views.gallery, name="gallery"),
     path("login-admin/", views.login_admin.as_view(), name="login_admin"),
-    path("login-donor/", views.login_donor.as_view(), name="login_donor"),
     path("login-volunteer/", views.login_volunteer.as_view(), name="login_volunteer"),
     path("signup-donor/", views.signup_donor.as_view(), name="signup_donor"),
     path("signup-volunteer/", views.signup_volunteer.as_view(), name="signup_volunteer"),
@@ -38,7 +37,21 @@ urlpatterns = [
     path('password-reset-confirm/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name='password_reset_confirm_.html',form_class=MySetPasswordForm),name='password_reset_confirm'),
     path('password-reset-complete/', auth_views.PasswordResetCompleteView.as_view(template_name='password_reset_complete.html'),name='password_reset_complete'),
 
+    #Donor URLS
+    path("donor/login-donor", views.login_donor.as_view(), name="login_donor"),
+    path("donor/index-donor", views.index_donor, name="index_donor"),
+    path("donor/donate-now/", views.donate_now.as_view(), name="donate_now"),
+    path("donor/donation-history/", views.donation_history, name="donation_history"),
+    path("donor/profile-donor/", views.profile_donor.as_view(), name="profile_donor"),
+    path(
+        "donor/accepted-donationdetail/<int:pid>",
+        views.accepted_donationdetail.as_view(),
+        name="accepted_donationdetail",
+    ),
 
+
+
+    
 
 
     # admin dashboard
@@ -71,11 +84,7 @@ urlpatterns = [
     path("changepwd-admin/", views.changepwd_admin.as_view(), name="changepwd_admin"),
     path("logout/", views.logoutView, name="logout"),
     # view details
-    path(
-        "accepted-donationdetail/<int:pid>",
-        views.accepted_donationdetail.as_view(),
-        name="accepted_donationdetail",
-    ),
+    
     path(
         "view-volunteerdetail/<int:pid>",
         views.view_volunteerdetail.as_view(),
@@ -88,10 +97,6 @@ urlpatterns = [
         name="view_donationdetail",
     ),
     # donar dashboard
-    path("index-donor/", views.index_donor, name="index_donor"),
-    path("donate-now/", views.donate_now.as_view(), name="donate_now"),
-    path("donation-history/", views.donation_history, name="donation_history"),
-    path("profile-donor/", views.profile_donor.as_view(), name="profile_donor"),
     path("changepwd-donor/", views.changepwd_donor.as_view(), name="changepwd_donor"),
     # volunteer dashboard
     path("index-volunteer/", views.index_volunteer, name="index_volunteer"),

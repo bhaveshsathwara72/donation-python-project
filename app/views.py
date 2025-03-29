@@ -47,7 +47,7 @@ class login_admin(View):
 class login_donor(View):
     def get(self, request):
         form = LoginForm()
-        return render(request, "login-donor.html", {"form": form})
+        return render(request, "donor/login-donor.html", {"form": form})
 
     def post(self, request):
         form = LoginForm(request.POST)
@@ -62,12 +62,12 @@ class login_donor(View):
                 if Donor.objects.filter(user=user).exists():  
                     login(request, user)
                     # messages.success(request, "Login Successful!")
-                    return redirect("/index-donor")  
+                    return redirect("/donor/index-donor")  
                 else:
                     messages.warning(request, "You are not registered as a Donor.")
         except:
                 messages.warning(request, "Invalid username or password. Try again.")
-        return render(request, "login-donor.html", {"form": form}) 
+        return render(request, "donor/login-donor.html", {"form": form}) 
   
 class login_volunteer(View):
     def get(self, request):
@@ -376,7 +376,7 @@ class accepted_donationdetail(View):
         donationarea = DonationArea.objects.all()
         volunteer = Volunteer.objects.filter(status='accept')
         # volunteer = Volunteer.objects.all()
-        return render(request, "accepted-donationdetail.html",locals())
+        return render(request, "donor/accepted-donationdetail.html",locals())
     def post(self,request,pid):
         if not request.user.is_authenticated:
             return redirect('/login-admin')
@@ -400,7 +400,7 @@ class accepted_donationdetail(View):
             return render(request,"volunteerallocated-donation.html",locals())
         except:
             messages.warning(request,'Failed to Allocate Volunteer')
-        return render(request,"accepted-donationdetail.html",locals())
+        return render(request,"donor/accepted-donationdetail.html",locals())
     
 
 class view_volunteerdetail(View):
@@ -476,13 +476,13 @@ def index_donor(request):
     rejectedcount = Donation.objects.filter(donor=donor,status="reject").count()
     pendingcount = Donation.objects.filter(donor=donor,status="pending").count()
     deliveredcount = Donation.objects.filter(donor=donor,status="Donation Delivered Successfully").count()
-    return render(request, "index-donor.html",locals())
+    return render(request, "donor/index-donor.html",locals())
 
 
 class donate_now(View):
     def get(self,request):
         form = DonateNowForm()
-        return render(request, "donate-now.html",locals())
+        return render(request, "donor/donate-now.html",locals())
     def post(self, request):
         form = DonateNowForm(request.POST)
         if not request.user.is_authenticated:
@@ -501,7 +501,7 @@ class donate_now(View):
             except:
                 messages.warning(request, 'Failed to Donate')
 
-        return render(request, 'donate-now.html', locals())
+        return render(request, "donor/donate-now.html", locals())
 
 
 def donation_history(request):
@@ -510,7 +510,7 @@ def donation_history(request):
     user = request.user
     donor = Donor.objects.get(user=user)
     donation = Donation.objects.filter(donor=donor)
-    return render(request, 'donation-history.html',locals())
+    return render(request, "donor/donation-history.html",locals())
 
 
 class profile_donor(View):
@@ -519,7 +519,7 @@ class profile_donor(View):
         form2 = DonorSignupForm()
         user = request.user
         donor = Donor.objects.get(user=user)
-        return render(request, "profile-donor.html",locals())
+        return render(request, "donor/profile-donor.html",locals())
     
     def post(self,request):
         if not request.user.is_authenticated:
@@ -550,7 +550,7 @@ class profile_donor(View):
         except Exception as e:
 
             messages.warning(request,'Profile Update Failed',e)
-        return render(request,"profile-donor.html",locals())    
+        return render(request,"donor/profile-donor.html",locals())    
 
 
 class changepwd_donor(View):

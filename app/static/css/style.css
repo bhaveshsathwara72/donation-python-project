@@ -446,3 +446,8 @@
 .footer .copyright a:hover {
     color: var(--primary);
 }
+
+.center {
+    display: block;
+    margin-left: 10%;
+  }
