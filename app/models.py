@@ -67,6 +67,13 @@ class Gallery(models.Model):
     creationdate = models.DateTimeField(auto_now_add=True)
     def __str__(self):
         return str(self.id)  
+    
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE) # Delete profile when user is deleted
+    image = models.ImageField(default='default.jpg', upload_to='profile_pics')
+
+    def __str__(self):
+        return f'{self.user.username} Profile' #show how we want it to be displayed
         
 
 

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Donor, Volunteer, DonationArea, Donation,Gallery
+from .models import Donor, Volunteer, DonationArea, Donation,Gallery, Profile
 
 # Register your models here.
 
@@ -23,6 +23,7 @@ class DonationAdmin(admin.ModelAdmin):
 class GalleryAdmin(admin.ModelAdmin):
     list_display = ('id','donation','deliverypic','creationdate')
 
+admin.site.register(Profile)
 
 
 

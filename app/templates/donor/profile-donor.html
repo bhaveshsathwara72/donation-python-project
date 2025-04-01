@@ -65,7 +65,7 @@
         </form>
     </div>
 
-    {% if form.non_field_errors %}  {# ✅ Fixed spelling mistake #}
+    {% if form.non_field_errors %}  
         {% for error in form.non_field_errors %}
             <p class="alert alert-danger my-3">{{ error }}</p>
         {% endfor %}
@@ -74,7 +74,7 @@
     {% if messages %}
         {% for message in messages %}
             <h3 {% if message.tags %} class="text-center alert alert-{{ message.tags }} my-5" {% endif %}>
-                {{ message }}  {# ✅ Corrected "messages" to "message" inside loop #}
+                {{ message }}  
             </h3>
         {% endfor %}
     {% endif %}

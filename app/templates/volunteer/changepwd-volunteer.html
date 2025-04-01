@@ -1,4 +1,4 @@
-{% extends 'donor/base-db-donor.html' %}
+{% extends 'volunteer/base-db-volunteer.html' %}
 {% load static %}
 {% block main %}
 <div class="container mt-5 vh-100 table-responsive">
@@ -19,6 +19,7 @@
             </div>
         </form>
         
+  
 </div>
 {% if form.non_field_errors %}
     {% for error in form.non_field_errors %}
@@ -31,6 +32,5 @@
         <h3 {% if message.tags %} class="text-center alert alert-{{ message.tags }} my-5" {% endif %}>{{ message }}</h3>
     {% endfor %}
 {% endif %}
-
-</div>
+  </div>
 {% endblock main %}
