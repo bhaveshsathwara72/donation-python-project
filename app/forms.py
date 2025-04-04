@@ -28,7 +28,7 @@ class DonorSignupForm(forms.ModelForm):
         fields=['contact','userpic','address']
         widgets={
             'contact':forms.NumberInput(attrs={'class':'form-control','placeholder':'contact Number'}),
-            'address':forms.Textarea(attrs={'class':'form-control','placeholder':'Full Address'})
+            'address':forms.Textarea(attrs={"rows":"3",'class':'form-control','placeholder':'Full Address'})
         }
 
 class VolunteerSignupForm(forms.ModelForm):
@@ -66,13 +66,20 @@ class MySetPasswordForm(SetPasswordForm):
     new_password2 = forms.CharField(label=" Confirm New Password", strip=False, widget=forms.PasswordInput(attrs={'autocomplete':'new-password','class':'form-control'}))
 
 DONATION_CHOICES=(
+
         ('Food Donation','Food Donation'),
         ('Cloth Donation','Cloth Donation'),
-        ('Footwear Donation','Footwear Donation'),
+        ('Blood Donation','Blood Donation'),
         ('Books Donation','Books Donation'),
         ('Furniture Donation','Furniture Donation'),
         ('Vessel Donation','Vessel Donation'),
-        ('Other','Other'),
+        ('Organ Donation','Organ Donation'),
+        ('Art Donation','Art Donation'),
+        ('Cash Donation','Cash Donation'),
+        ('Medical Donation','Medical Donation'),
+        ('Legacy Donation', 'Legacy Donation'),
+        ('Plant Donation','Plant Donation'),
+    
     )
 
 class DonateNowForm(forms.ModelForm):

@@ -3,7 +3,7 @@
 <!-- Home Dashboard -->
 {% block main %}
 <div class="container mt-5">
-    <div class="row g-3">
+    <div class="row">
         <div class="col-lg-4 col-md-6 mt-2">
             <div class="card text-center">
                 <div class="card-header bg-dark text-white pt-3">
@@ -22,7 +22,7 @@
                 </div>
                 <div class="card-footer">
                     <h3>
-                        <a href="{% url 'donation_history' %}" ><u>View Details</u></a>
+                        <a href="{% url 'donor_donation_all' %}" ><u>View Details</u></a>
                     </h3>
                 </div>
             </div>
@@ -45,7 +45,7 @@
                 </div>
                 <div class="card-footer">
                     <h3>
-                        <a href="{% url 'donation_history' %}" ><u>View Details</u></a>
+                        <a href="{% url 'donor_accepted_donation' %}" ><u>View Details</u></a>
                     </h3>
                 </div>
             </div>
@@ -68,23 +68,24 @@
                 </div>
                 <div class="card-footer">
                     <h3>
-                        <a href="{% url 'donation_history' %}" ><u>View Details<u></a>
+                        <a href="{% url 'donor_rejected_donation' %}" ><u>View Details</u></a>
                     </h3>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row ">
+    <div class="row mt-3">
+
         <div class="col-lg-4 col-md-6 mt-2">
             <div class="card text-center">
                 <div class="card-header bg-dark text-white pt-3">
                     <div>
-                        <h3 class="text-white">Pending Donations</h3>
-                      
+                        <h3 class="text-white">Pending Donation</h3>
+                        
                     </div>
                     <div class="row align-items-center pt-2">
                         <div class="col">
-                            <i class="fa fa-exchange fa-3x"></i>
+                            <i class="fa fa-list fa-3x"></i>
                         </div>
                         <div class="col">
                             <h3 class="display-4 text-white">{{pendingcount}}</h3>
@@ -93,12 +94,12 @@
                 </div>
                 <div class="card-footer">
                     <h3>
-                        <a href="{% url 'donation_history' %}" ><u>View Details</u></a>
+                        <a href="{% url 'donor_pending_donation' %}" ><u>View Details</u></a>
                     </h3>
                 </div>
             </div>
         </div>
-
+        
         <div class="col-lg-4 col-md-6 mt-2">
             <div class="card text-center">
                 <div class="card-header bg-dark text-white pt-3">
@@ -117,7 +118,7 @@
                 </div>
                 <div class= "card-footer ">
                     <h3>
-                        <a href="{% url 'donation_history' %}"><u>View Details</u></a>
+                        <a href="{% url 'donor_delivered_donation' %}"><u>View Details</u></a>
                     </h3>
                 </div>
             </div>

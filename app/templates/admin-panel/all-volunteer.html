@@ -26,7 +26,7 @@
               <td>{{i.contact}}</td>
               <td>{{i.status}}</td>
               <td>{{i.regdate}}</td>
-              <td><a href="{% url 'view_volunteerdetail' i.id %}" class="text-primary">View Details</a></td>
+              <td><a href="{% url 'view_volunteerdetail' i.id %}" class="text-primary"><u>View Details</u></a></td>
               <td><a href="{% url 'delete_volunteer' i.user.id %}" class="text-danger" onclick="return confirm('Are You Sure?')">Delete</a></td>
             </tr>
           {% endfor %}

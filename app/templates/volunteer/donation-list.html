@@ -2,7 +2,7 @@
 {% load static %}
 {% block main %}
 <div class="container mt-5 table-responsive">
-    <h3>New Donation Collection Request</h3>
+    <h3>{{title}}</h3>
     <hr>
     <table id="mytable" class="table data">
         <thead class="table-dark">
@@ -19,7 +19,13 @@
                 <td>{{forloop.counter}}</td>
                 <td>{{i.donationname}}</td>
                 <td>{{i.donationdate}}</td>
-                <td><a href="{% url 'donationcollection_detail' i.id %}" class="text-primary">View Details</a></td>
+                <td>
+                  {% if i.status == "Volunteer Allocated" %}
+                      <a href="{% url 'donationcollection_detail' i.id %}" class="text-primary"><u>View Details</u></a>
+                  {% else %}
+                      <a href="{% url 'donationrec_detail' i.id %}" class="text-primary"><u>View Details</u></a>
+                  {% endif %}
+              </td>
               </tr>
         {% endfor %}
         </tbody>

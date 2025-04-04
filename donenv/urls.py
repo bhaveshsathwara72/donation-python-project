@@ -28,19 +28,23 @@ urlpatterns = [
     path("", views.index, name="index"),
     path("gallery", views.gallery, name="gallery"),
 
-    path('password-reset/', auth_views.PasswordResetView.as_view(template_name='password_reset.html',form_class=MyPasswordResetForm),name='password_reset'),
-    path('password-reset/done/', auth_views.PasswordResetDoneView.as_view(template_name='password_reset_done.html'), name='password_reset_done'),
-    path('password-reset-confirm/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name='password_reset_confirm_.html',form_class=MySetPasswordForm),name='password_reset_confirm'),
-    path('password-reset-complete/', auth_views.PasswordResetCompleteView.as_view(template_name='password_reset_complete.html'),name='password_reset_complete'),
+    path('password-reset/', auth_views.PasswordResetView.as_view(template_name='password-reset.html',form_class=MyPasswordResetForm),name='password_reset'),
+    path('password-reset-done/', auth_views.PasswordResetDoneView.as_view(template_name='password-reset-done.html'), name='password_reset_done'),
+    path('password-reset-confirm/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name='password-reset-confirm.html',form_class=MySetPasswordForm),name='password_reset_confirm'),
+    path('password-reset-complete/', auth_views.PasswordResetCompleteView.as_view(template_name='password-reset-complete.html'),name='password_reset_complete'),
 
     #Donor URLS
     path("donor/login-donor", views.login_donor.as_view(), name="login_donor"),
     path("donor/signup-donor/", views.signup_donor.as_view(), name="signup_donor"),
     path("donor/index-donor", views.index_donor, name="index_donor"),
     path("donor/donate-now/", views.donate_now.as_view(), name="donate_now"),
-    path("donor/donation-history/", views.donation_history, name="donation_history"),
+    # path("donor/donation-history/", views.donation_history, name="donation_history"),
     path("donor/profile-donor/", views.profile_donor.as_view(), name="profile_donor"),
-    
+    path("donor/donation-list/all", views.donor_all, name="donor_donation_all"),
+    path("donor/donation-list/accepted", views.donor_accepted_donation, name="donor_accepted_donation"),
+    path("donor/donation-list/rejected", views.donor_rejected_donation, name="donor_rejected_donation"),
+    path("donor/donation-list/pending", views.donor_pending_donation, name="donor_pending_donation"),
+    path("donor/donation-list/delivered", views.donor_delivered_donation, name="donor_delivered_donation"),
     path("donor/changepwd-donor/", views.changepwd_donor.as_view(), name="changepwd_donor"),
     path(
         "donor/donationdetail-donor/<int:pid>",
@@ -55,8 +59,14 @@ urlpatterns = [
     path("volunteer/signup-volunteer/", views.signup_volunteer.as_view(), name="signup_volunteer"),
     path("volunteer/index-volunteer/", views.index_volunteer, name="index_volunteer"),
     path("volunteer/changepwd-volunteer/", views.changepwd_volunteer.as_view(), name="changepwd_volunteer"),
-    path("volunteer/collection-req/", views.collection_req, name="collection_req"),
     path("volunteer/profile-volunteer/", views.profile_volunteer.as_view(), name="profile_volunteer"),
+    path("volunteer/donation-list/new-collection-request", views.volunteer_new_collection_request, name="volunteer_new_collection_request"),
+    path("volunteer/donation-list/donation-received", views.volunteer_donation_received, name="volunteer_donation_received"),
+    path("volunteer/donation-list/donation-not-received", views.volunteer_donation_not_received, name="volunteer_donation_not_received"),
+    path("volunteer/donation-list/donation-delivered", views.volunteer_donation_delivered, name="volunteer_donation_delivered"),
+
+    
+
 
     path(
         "volunteer/donationcollection-detail/<int:pid>",
@@ -64,12 +74,12 @@ urlpatterns = [
         name="donationcollection_detail",
     ),
     path(
-        "volunteer/donationdelivered-volunteer/",
+        "volunteer/donation-list/donationdelivered-volunteer/",
         views.donationdelivered_volunteer,
         name="donationdelivered_volunteer",
     ),
      path(
-        "volunteer/donationnotrec-volunteer/",
+        "volunteer/donation-list/donationnotrec-volunteer/",
         views.donationnotrec_volunteer,
         name="donationnotrec_volunteer",
     ),
@@ -79,7 +89,7 @@ urlpatterns = [
         name="donationrec_detail",
     ),
     path(
-        "volunteer/donationrec-volunteer/",
+        "volunteer/donation-list/donationrec-volunteer/",
         views.donationrec_volunteer,
         name="donationrec_volunteer",
     ),
@@ -102,6 +112,7 @@ urlpatterns = [
     path("admin-panel/rejected-donation/", views.rejected_donation, name="rejected_donation"),
     path("admin-panel/rejected-volunteer/", views.rejected_volunteer, name="rejected_volunteer"),
     path("admin-panel/view-donordetail/<int:pid>", views.view_donordetail, name="view_donordetail"),
+    
 
     path(
         "admin-panel/donationnotrec-admin/", views.donationnotrec_admin, name="donationnotrec_admin"

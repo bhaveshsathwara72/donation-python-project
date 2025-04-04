@@ -36,13 +36,18 @@ class DonationArea(models.Model):
         return self.areaname
     
 DONATION_CHOICES=(
-        ('Food Donation','Food Donation'),
+         ('Food Donation','Food Donation'),
         ('Cloth Donation','Cloth Donation'),
-        ('Footwear Donation','Footwear Donation'),
+        ('Blood Donation','Blood Donation'),
         ('Books Donation','Books Donation'),
         ('Furniture Donation','Furniture Donation'),
         ('Vessel Donation','Vessel Donation'),
-        ('Other','Other'),
+        ('Organ Donation','Organ Donation'),
+        ('Art Donation','Art Donation'),
+        ('Cash Donation','Cash Donation'),
+        ('Medical Donation','Medical Donation'),
+        ('Legacy Donation', 'Legacy Donation'),
+        ('Plant Donation','Plant Donation'),
     )
     
 class Donation(models.Model):

@@ -1,12 +1,12 @@
 {% extends '../base.html' %}
 {% load static %}
 {% block main %}
-<div class="container-fluid bg-dark row justify-content-center">
+<div class="container-fluid bg-dark row justify-content-center m-0">
   {% comment %} <div class="col-12 col-md-8 col-lg-12 col-xl-5"> {% endcomment %}
-  <div class="card bg-dark text-white col-md-5 mt-5" style="border-radius: 3rem;">
-    <div class="card-body p-5 text-center">
+  <div class="card bg-dark text-white col-md-4 mt-10 shadow-white" style="border-radius: 3rem;">
+    <div class="card-body p-3 text-center">
 
-      <div class="mb-2 md-5 mt-md-5 pb-5">
+      <div class="mb-2 md-5 mt-5 pb-5">
 
         <h2 class="text-white fw-bold mb-2 text-uppercase">Volunteer Login</h2>
         <p class="text-white mb-2 ">Please enter your login and password!</p>
@@ -21,7 +21,7 @@
         <input type="submit" value="Login" class="btn btn-outline-light btn-lg col-sm-5 p-2 mb-2"/>
         </form>
         <p class="small mb-2 pb-lg-2 mt-3"><a class="text-white-50" href="{% url 'password_reset' %}">Forgot password?</a></p>
-        <div class="mt-1 mb-2 ">Don't have an account? <a href="{% url 'signup_donor' %}" class="text-white-50 fw-bold">Sign Up</a></div>
+        <div class="mt-1 mb-2 ">Don't have an account? <a href="{% url 'signup_volunteer' %}" class="text-white-50 fw-bold">Sign Up</a></div>
 
       </div>
     </div>
@@ -38,6 +38,6 @@
         {% endif %}
     </div>
   </div>
-</section>
+
 {% endblock main %}
      

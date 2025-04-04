@@ -21,7 +21,7 @@
               <td>{{i.donationname}}</td>
               <td>{{i.donationdate}}</td>
               <td>{{i.status}}</td>
-              <td><a href="{% url 'donationrec_detail' i.id %}" class="text-primary">View Details</a></td>
+              <td><a href="{% url '"volunteer/donation-list/donationrec-volunteer/' i.id %}" class="text-primary"><u>View Details</u></a></td>
             </tr>
       {% endfor %}
 

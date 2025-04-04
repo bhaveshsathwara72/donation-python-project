@@ -3,7 +3,7 @@
         <!-- Home Dashboard -->
         {% block main %}
         <div class="container mt-5">
-            <div class="row g-3">
+            <div class="row">
                 <div class="col-lg-6 col-md-6 mt-1">
                     <div class="card text-center">
                         <div class="card-header bg-dark text-white pt-3">
@@ -22,7 +22,7 @@
                         </div>
                         <div class="card-footer">
                             <h3>
-                                <a href="{% url 'collection_req' %}" class="text-primary"><u>View Details</u></a>
+                                <a href="{% url 'volunteer_new_collection_request' %}" class="text-primary"><u>View Details</u></a>
                             </h3>
                         </div>
                     </div>
@@ -31,7 +31,7 @@
                     <div class="card text-center ">
                         <div class="card-header bg-dark text-white pt-3" >
                             <div>
-                                <h3 class="text-white">Total Donation Received</h3>
+                                <h3 class="text-white">Donation Received</h3>
                                
                             </div>
                             <div class="row align-items-center pt-3">
@@ -45,18 +45,18 @@
                         </div>
                         <div class="card-footer">
                             <h3>
-                                <a href="{% url 'donationrec_volunteer' %}" class="text-primary"><u>View Details</u></a>
+                                <a href="{% url 'volunteer_donation_received' %}" class="text-primary"><u>View Details</u></a>
                             </h3>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row mt-2">
+            <div class="row mt-3">
                 <div class="col-lg-6 col-md-6 mt-1">
                     <div class="card text-center ">
                         <div class="card-header bg-dark text-white pt-3">
                             <div>
-                                <h3 class="text-white">Total Donation Not Received</h3>
+                                <h3 class="text-white">Donation Not Received</h3>
                                
                             </div>
                             <div class="row align-items-center pt-3">
@@ -70,7 +70,7 @@
                         </div>
                         <div class="card-footer">
                             <h3>
-                                <a href="{% url 'donationnotrec_volunteer' %}" class="text-primary"><u>View Details</u></a>
+                                <a href="{% url 'volunteer_donation_not_received' %}" class="text-primary"><u>View Details</u></a>
                             </h3>
                         </div>
                     </div>
@@ -81,7 +81,7 @@
                     <div class="card text-center ">
                         <div class="card-header bg-dark text-white pt-3">
                             <div>
-                                <h3 class="text-white">Total Donation Delivered</h3>
+                                <h3 class="text-white">Donation Delivered</h3>
                               
                             </div>
                             <div class="row align-items-center pt-3">
@@ -95,7 +95,7 @@
                         </div>
                         <div class="card-footer">
                             <h3>
-                                <a href="{% url 'donationdelivered_volunteer' %}" class="text-primary"><u>View Details</u></a>
+                                <a href="{% url 'volunteer_donation_delivered' %}" class="text-primary"><u>View Details</u></a>
                             </h3>
                         </div>
                     </div>

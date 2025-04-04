@@ -2,9 +2,17 @@
 :root {
     --primary: #050d13;
     --light: #F3F6F9;
-    
+    --white: #FFFFFF;
+    --primary-light: #e9ecef;
 }
 
+.primary-light{
+    background-color: var(--primary-light);
+}
+
+.primary-white{
+    background-color: var(--white);
+}
 .back-to-top {
     position: fixed;
     display: none;
@@ -126,7 +134,7 @@
     padding: 7px 20px;
     color: var(--dark);
     font-weight: 500;
-    border-left: 3px solid var(--light);
+    /* border-left: 3px solid var(--light); */
     border-radius: 0 30px 30px 0;
     outline: none;
 }
@@ -274,4 +282,29 @@
 .testimonial-carousel .owl-dot.active {
     background: var(--dark);
     border-color: var(--primary);
+}
+
+
+
+.dropdown-item .sidebar{
+    display:block;
+    width:100%;
+    padding:.25rem 1rem;
+    clear:both;
+    font-weight:400;
+    color:#ffffff;
+    text-align:inherit;
+    white-space:nowrap;
+    background-color:transparent;
+    border:0
+}
+.shadow{
+    box-shadow: 1px 1px;
+    background-color: var(--white);
+}
+
+
+.img-wa {
+    max-width: 100%;
+    width: 100%; /* ie8 */
 }

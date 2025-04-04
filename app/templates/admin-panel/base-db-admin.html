@@ -3,18 +3,18 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Donation & Volunteer System</title>
+        <title>Admin Portal</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="" name="keywords">
         <meta content="" name="description">
     
         <!-- Favicon -->
-        <link href="img/favicon.ico" rel="icon">
+        <link href="{% static 'img/favicon.ico' %}" rel="icon">
     
         <!-- Google Web Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Saira:wght@500;600;700&display=swap" rel="stylesheet"> 
         
         <!-- Icon Font Stylesheet -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -35,8 +35,8 @@
  <div class="sidebar pb-3 bg-dark">
             
     <nav class="navbar  navbar-light">
-        <a href="{% url 'index_donor' %}" class="navbar-brand mx-4 mb-3">
-            <h3 class="text-primary"></i>OneMission</h3>
+        <a href="{% url 'index_admin' %}" class="navbar-brand mx-4 mb-3">
+           <h1 class="fw-bold text-primary m-0">One<span class="text-white">Mission</span></h1>
         </a>
         <div class="d-flex align-items-center ms-4 mb-4">
             <div class="position-relative rounded-circle border border-5 border-white">
@@ -45,44 +45,49 @@
                 {% endif %}
             </div>
             <div class="ms-3 text-white">
-                
                 <h6 class="mb-0 text-white">{{request.user.first_name}} {{request.user.last_name}}</h6>
-                <span>Admin</span>
+                <span class="fw-bold ">Admin</span>
             </div>
         </div>
         <div class="navbar-nav w-100 text-white">
-            <a href="{% url 'index_admin' %}" class="nav-item nav-link {% if request.path == '/' %}active{% endif %}"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+            <a href="{% url 'index_admin' %}" class="nav-item nav-link {% if request.path == '/admin-panel/index-admin/' %}active{% endif %}"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
             <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-users me-2"></i>Donation</a>
-                <div class="dropdown-menu bg-transparent border-0">
-                    <a href="{% url 'pending_donation' %}" class="dropdown-item">New Donation Request</a>
-                    <a href="{% url 'accepted_donation' %}" class="dropdown-item">Accepted Donation</a>
-                    <a href="{% url 'rejected_donation' %}" class="dropdown-item">Rejected Donation</a>
-                    <a href="{% url 'volunteerallocated_donation' %}" class="dropdown-item">Volunteer Allocated Donation</a>
-                    <a href="{% url 'donationrec_admin' %}" class="dropdown-item">Donation Received</a>
-                    <a href="{% url 'donationnotrec_admin' %}" class="dropdown-item">Donation Not Received</a>
-                    <a href="{% url 'donationdelivered_admin' %}" class="dropdown-item">Donation Delivered</a>
-                    <a href="{% url 'all_donations' %}" class="dropdown-item">All Donation</a>
+                <a href="#" class="nav-link dropdown-toggle {% if request.path in donation_active_paths %}active{% endif %}" data-bs-toggle="dropdown">
+                    <i class="fa fa-users me-2"></i>Donation
+                </a>
+                                <div class="dropdown-menu bg-transparent border-0">
+                    <a href="{% url 'pending_donation' %}" class="dropdown-item {% if request.path == '/admin-panel/pending-donation/' %}active{% endif %}" style="color:white;">New Donation Request</a>
+                    <a href="{% url 'accepted_donation' %}" class="dropdown-item {% if request.path == '/admin-panel/accepted-donation/' %}active{% endif %}" style="color:white;">Accepted Donation</a>
+                    <a href="{% url 'rejected_donation' %}" class="dropdown-item {% if request.path == '/admin-panel/rejected-donation/' %}active{% endif %}" style="color:white;">Rejected Donation</a>
+                    <a href="{% url 'volunteerallocated_donation' %}" class="dropdown-item {% if request.path == '/admin-panel/volunteerallocated-donation/' %}active{% endif %}" style="color:white;">Volunteer Allocated Donation</a>
+                    <a href="{% url 'donationrec_admin' %}" class="dropdown-item {% if request.path == '/admin-panel/donationrec-admin/' %}active{% endif %}" style="color:white;">Donation Received</a>
+                    <a href="{% url 'donationnotrec_admin' %}" class="dropdown-item {% if request.path == '/admin-panel/donationnotrec-admin/' %}active{% endif %}" style="color:white;">Donation Not Received</a>
+                    <a href="{% url 'donationdelivered_admin' %}" class="dropdown-item {% if request.path == '/admin-panel/donationdelivered-admin/' %}active{% endif %}" style="color:white;">Donation Delivered</a>
+                    <a href="{% url 'all_donations' %}" class="dropdown-item {% if request.path == '/admin-panel/all-donations/' %}active{% endif %}" style="color:white;">All Donation</a>
                 </div>
             </div>
-            <a href="{% url 'manage_donor' %}" class="nav-item nav-link {% if request.path == '/Collection History' %}active{% endif %}"><i class="fa fa-info-circle me-2"></i>Manage Donor</a>
+            <a href="{% url 'manage_donor' %}" class="nav-item nav-link {% if request.path == '/admin-panel/manage-donor/' %}active{% endif %}"><i class="fa fa-info-circle me-2"></i>Manage Donor</a>
             <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-user-circle me-2"></i>Volunteer</a>
+                <a href="#" class="nav-link dropdown-toggle {% if request.path in volunteer_active_paths %}active{% endif %}" data-bs-toggle="dropdown">
+                    <i class="fa fa-users me-2"></i>Volunteer
+                </a>
                 <div class="dropdown-menu bg-transparent border-0">
-                    <a href="{% url 'new_volunteer' %}" class="dropdown-item">New Volunteer Request</a>
-                    <a href="{% url 'accepted_volunteer' %}" class="dropdown-item">Accepted Volunteer</a>
-                    <a href="{% url 'rejected_volunteer' %}" class="dropdown-item">Rejected Volunteer</a>
-                    <a href="{% url 'all_volunteer' %}" class="dropdown-item">All Volunteer</a>
+                    <a href="{% url 'new_volunteer' %}" class="dropdown-item {% if request.path == '/admin-panel/new-volunteer/' %}active{% endif %}" style="color:white;">New Volunteer Request</a>
+                    <a href="{% url 'accepted_volunteer' %}" class="dropdown-item {% if request.path == '/admin-panel/accepted-volunteer/' %}active{% endif %}" style="color:white;">Accepted Volunteer</a>
+                    <a href="{% url 'rejected_volunteer' %}" class="dropdown-item {% if request.path == '/admin-panel/rejected-volunteer/' %}active{% endif %}" style="color:white;">Rejected Volunteer</a>
+                    <a href="{% url 'all_volunteer' %}" class="dropdown-item {% if request.path == '/admin-panel/all-volunteer/' %}active{% endif %}" style="color:white;">All Volunteer</a>
                 </div>
             </div>
             <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-address-card me-2"></i>Area</a>
+                <a href="#" class="nav-link dropdown-toggle {% if request.path in area_active_paths %}active{% endif %}" data-bs-toggle="dropdown">
+                    <i class="fa fa-users me-2"></i>Area
+                </a>                
                 <div class="dropdown-menu bg-transparent border-0">
-                    <a href="{% url 'add_area' %}" class="dropdown-item">Add donation Area</a>
-                    <a href="{% url 'manage_area' %}" class="dropdown-item">Manage Donation Area</a>
+                    <a href="{% url 'add_area' %}" class="dropdown-item {% if request.path == '/admin-panel/add-area/' %}active{% endif %}" style="color:white;">Add donation Area</a>
+                    <a href="{% url 'manage_area' %}" class="dropdown-item {% if request.path == '/admin-panel/manage-area/' %}active{% endif %}" style="color:white;">Manage Donation Area</a>
                 </div>
             </div>
-            <a href="{% url 'changepwd_admin' %}" class="nav-item nav-link {% if request.path == '/Change Password' %}active{% endif %}"><i class="fa fa-key me-2"></i>Change Password</a>
+            <a href="{% url 'changepwd_admin' %}" class="nav-item nav-link {% if request.path == '/admin-panel/changepwd-admin/' %}active{% endif %}"><i class="fa fa-key me-2"></i>Change Password</a>
             <a href="{% url 'logout' %}" class="nav-item nav-link {% if request.path == '/Logout' %}active{% endif %}"><i class="fa fa-sign-out me-2"></i>Logout</a>
             
         </div>
@@ -95,125 +100,5 @@
 </div>   
 {% include 'base-db-footer.html' %}  
 
-{% comment %} <body class="bg-light bg-gradient">
-    <div class="sidebar">
-        <div class="logo_content">
-            <div class="logo">
-                <i id="icon-home" class="fa fa-home" aria-hidden="true"></i>
-                <div class="logo_name">Admin</div>
-            </div>
-            <span id="btn-sidebar"><i class="fa fa-bars"  aria-hidden="true"></i></span>
-        </div>
-        <div class="profile_content">
-            <div class="profile">
-                <div class="profile_details">
-                    {% if request.user.admin_set.all.first.userpic %}
-                        <img src="{{request.admin.donor_set.all.first.userpic.url}}" alt="Default Image" width="100" height="100">
-                    {% endif %}
 
-                    <div class="name_job">
-                        <div class="name">{{request.user.first_name}} {{request.user.last_name}}</div>
-                        <div class="email">{{request.user.email}}</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <ul class="nav_list">
-            <!-- <li>
-                
-                <i id="icon-search" class="fa fa-search" aria-hidden="true"></i>
-                <input type="text" placeholder="Search...">
-            </li> -->
-            <li>
-                <a href="{% url 'index_admin' %}">
-                    <!--grid -->
-                    <i id="icon" class="fa fa-th-large" aria-hidden="true"></i>
-                    <span class="links_name">Dashboard</span>
-                </a>
-            </li>
-            <li >
-                <!-- <a href="#">
-                    
-                    <i id="icon" class="fa fa-users" aria-hidden="true"></i>
-                    <span class="links_name">Donor</span> 
-                    
-                </a> -->
-                
-               <a href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i id="icon" class="fa fa-users" aria-hidden="true"></i>
-                    <span class="links_name">Donation</span> 
-                    <i class="down-arrow fa-solid fa-angle-down"></i>
-                  </a>
-                  <ul class="dropdown-menu dropdown-menu-dark " aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="{% url 'pending_donation' %}">New Donation Request</a></li>
-                    <li><a class="dropdown-item" href="{% url 'accepted_donation' %}">Accepted Donation</a></li>
-                    <li><a class="dropdown-item" href="{% url 'rejected_donation' %}">Rejected Donation</a></li>
-                    <li><a class="dropdown-item" href="{% url 'volunteerallocated_donation' %}">Volunteer Allocated Donation</a></li>
-                    <li><a class="dropdown-item" href="{% url 'donationrec_admin' %}">Donation Received</a></li>
-                    <li><a class="dropdown-item" href="{% url 'donationnotrec_admin' %}">Donation Not Received</a></li>
-                    <li><a class="dropdown-item" href="{% url 'donationdelivered_admin' %}">Donation Delivered</a></li>
-                    <li><a class="dropdown-item" href="{% url 'all_donations' %}">All Donation</a></li>
-                  </ul>  
-            </li>
-            <li>
-                <a href="{% url 'manage_donor' %}">
-                    <!--grid -->
-                    <i id="icon" class="fa fa-info-circle" aria-hidden="true"></i>
-                    <span class="links_name">Manage Donor</span>
-                </a>
-            </li>
-            <li>
-                
-                <a href="#" id="navbarDropdownvol" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i id="icon" class="fa fa-user-circle" aria-hidden="true"></i>
-                    <span class="links_name">Volunteer</span>
-                    <i class="down-arrow fa-solid fa-angle-down"></i>
-                  </a>
-                  <ul class="dropdown-menu dropdown-menu-dark " aria-labelledby="navbarDropdownvol">
-                    <li><a class="dropdown-item" href="{% url 'new_volunteer' %}">New Volunteer Request</a></li>
-                    <li><a class="dropdown-item" href="{% url 'accepted_volunteer' %}">Accepted Volunteer</a></li>
-                    <li><a class="dropdown-item" href="{% url 'rejected_volunteer' %}">Rejected Volunteer</a></li>
-                    <li><a class="dropdown-item" href="{% url 'all_volunteer' %}">All Volunteer</a></li>
-                   </ul>  
-            </li>
-            <li>
-                
-                <a href="#" id="navbarDropdownarea" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i id="icon" id="icon" class="fa fa-address-card" aria-hidden="true"></i>
-                    <span class="links_name">Area</span>
-                    <i class="down-arrow fa-solid fa-angle-down"></i>
-                  </a>
-                  <ul class="dropdown-menu dropdown-menu-dark " aria-labelledby="navbarDropdownarea">
-                    <li><a class="dropdown-item" href="{% url 'add_area' %}">Add donation Area</a></li>
-                    <li><a class="dropdown-item" href="{% url 'manage_area' %}">Manage Donation Area</a></li>
-                   </ul>  
-            </li>
-            {% comment %} <li>
-                <a href="#">
-                    <!--info -->
-                    <i id="icon" class="fa fa-info-circle" aria-hidden="true"></i>
-                    <span class="links_name">Profile</span>
-                </a>
-            </li> {% endcomment %}
-            <li>
-                <a href="{% url 'changepwd_admin' %}">
-                    <!--key -->
-                    <i id="icon" class="fa fa-key" aria-hidden="true"></i>
-                    <span class="links_name">Change Password</span>
-                </a> 
-            </li>
-            <li>
-                <a href="{% url 'logout' %}">
-                    <!--logout -->
-                    <i id="icon" class="fa fa-sign-out" aria-hidden="true"></i>
-                    <span class="links_name">Logout</span>
-                </a>
-            </li>
-            
-        </ul>
-    </div>
-    {% comment %} <div class="home_content">
-        {% block main %}
-        {% endblock main %}
-    </div>    {% endcomment %}
-    {% comment %} {% include 'base-db-footer.html' %}          {% endcomment %} 
+    

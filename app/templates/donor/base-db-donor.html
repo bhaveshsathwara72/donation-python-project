@@ -3,18 +3,18 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Donation & Volunteer System</title>
+    <title>Donor Portal</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link href="{% static 'img/favicon.ico' %}" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Saira:wght@500;600;700&display=swap" rel="stylesheet"> 
     
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -37,7 +37,7 @@
                 
         <nav class="navbar navbar-light">
             <a href="{% url 'index_donor' %}" class="navbar-brand mx-4 mb-3">
-                <h3 class="text-primary"></i>OneMission</h3>
+                <h1 class="fw-bold text-primary m-0">One<span class="text-white">Mission</span></h1>
             </a>
             <div class="d-flex align-items-center ms-4 mb-4">
                 <div class="position-relative rounded-circle border border-5 border-white">
@@ -51,10 +51,10 @@
                 </div>
             </div>
             <div class="navbar-nav w-100 text-white">
-                <a href="{% url 'index_donor' %}" class="nav-item nav-link {% if request.path == '/index-donor/' %}active{% endif %}"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-                <a href="{% url 'donate_now' %}" class="nav-item nav-link {% if request.path == '/donate-now/' %}active{% endif %}"><i class="fa fa-users me-2"></i>Donate Now</a>
-                <a href="{% url 'donation_history' %}" class="nav-item nav-link {% if request.path == '/donation-history/' %}active{% endif %}"><i class="fa fa-info-circle me-2"></i>Donation History</a>
-                <a href="{% url 'profile_donor' %}"  class="nav-item nav-link {% if request.path == '/profile-donor/' %}active{% endif %}"><i class="fa fa-user me-2"></i>Profile</a>
+                <a href="{% url 'index_donor' %}" class="nav-item nav-link {% if request.path == '/donor/index-donor' %}active{% endif %}"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                <a href="{% url 'donate_now' %}" class="nav-item nav-link {% if request.path == '/donor/donate-now/' %}active{% endif %}"><i class="fa fa-users me-2"></i>Donate Now</a>
+                <a href="{% url 'donor_donation_all' %}" class="nav-item nav-link {% if request.path == '/donor/donation-list/all' %}active{% endif %}"><i class="fa fa-info-circle me-2"></i>Donation History</a>
+                <a href="{% url 'profile_donor' %}"  class="nav-item nav-link {% if request.path == '/donor/profile-donor/' %}active{% endif %}"><i class="fa fa-user me-2"></i>Profile</a>
                 <a href="{% url 'logout' %}" class="nav-item nav-link {% if request.path == '/' %}active{% endif %}"><i class="fa fa-sign-out me-2"></i>Logout</a>
                
             </div>
