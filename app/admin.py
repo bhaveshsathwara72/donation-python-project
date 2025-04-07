@@ -13,7 +13,7 @@ class VolunteerAdmin(admin.ModelAdmin):
 
 @admin.register(DonationArea)
 class DonationAreaAdmin(admin.ModelAdmin):
-    list_display = ('id','areaname','description','creationdate')
+    list_display = ('id','areaname','creationdate')
 
 @admin.register(Donation)
 class DonationAdmin(admin.ModelAdmin):

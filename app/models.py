@@ -30,7 +30,6 @@ class Volunteer(models.Model):
     
 class DonationArea(models.Model):
     areaname = models.CharField(max_length=100)
-    description = models.CharField(max_length=300)
     creationdate = models.DateTimeField(auto_now_add=True)
     def __str__(self):
         return self.areaname
@@ -46,8 +45,9 @@ DONATION_CHOICES=(
         ('Art Donation','Art Donation'),
         ('Cash Donation','Cash Donation'),
         ('Medical Donation','Medical Donation'),
-        ('Legacy Donation', 'Legacy Donation'),
         ('Plant Donation','Plant Donation'),
+        ('Other Donation', 'Other Donation'),
+
     )
     
 class Donation(models.Model):

@@ -1,19 +1,19 @@
 {% extends 'admin-panel/base-db-admin.html' %}
 {% load static %}
 {% block main %}
-<div class="container mt-5 vh-100 table-responsive">
-    <h3>Manage Area</h3>
+<div class="container mt-5  table-responsive">
+  <h3>Manage Area</h3>
     <hr>
     <table id="mytable" class="table data">
-        <thead class="table-dark">
+      <thead class="table-dark">
             <tr class="text-center">
                 <th scope="col">#</th>
-                <th>AreaName</th>
-                <th>CreationDate</th>
-                <th>Edit</th>
-                <th>Delete</th>
+                <th scope="col">AreaName</th>
+                <th scope="col">CreationDate</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
               </tr>
-        </thead>
+      </thead>
         <tbody>
           {% for i in area %}
             <tr class="text-center">
@@ -24,7 +24,7 @@
                 <td><a href="{% url 'delete_area' i.id %}" class="text-danger" onclick="return confirm('Are You Sure?')" class="form-control">Delete</a><td>
               
               </tr>
-              {% endfor %}
+          {% endfor %}
         </tbody>
     </table>
   </div>

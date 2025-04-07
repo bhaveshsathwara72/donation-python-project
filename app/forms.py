@@ -77,8 +77,9 @@ DONATION_CHOICES=(
         ('Art Donation','Art Donation'),
         ('Cash Donation','Cash Donation'),
         ('Medical Donation','Medical Donation'),
-        ('Legacy Donation', 'Legacy Donation'),
         ('Plant Donation','Plant Donation'),
+        ('Other Donation', 'Other Donation'),
+
     
     )
 
@@ -103,12 +104,10 @@ class DonateNowForm(forms.ModelForm):
 class DonationAreaForm(forms.ModelForm):
     class Meta:
         model = DonationArea
-        fields = ['areaname','description']
+        fields = ['areaname']
         widgets ={'areaname':forms.TextInput(attrs={'class':'form-control','placeholder':'Donation Area'}),
-                  'description':forms.Textarea(attrs={'class':'form-control','placeholder':'Description'}),
         }
         lables={
             "areaname": "Donation Area Name",
-            "description":"Description",
         }
 

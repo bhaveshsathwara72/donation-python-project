@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from datetime import date
-
+from django.db import connection
 
 
 # Create your views here.
@@ -285,15 +285,12 @@ class add_area(View):
         if not request.user.is_authenticated:
             return redirect('/login-admin')
         areaname = request.POST['areaname']
-        des = request.POST['description']
         try:
-            DonationArea.objects.create(areaname=areaname,description=des)
+            DonationArea.objects.create(areaname=areaname)
             messages.success(request,'Area Added Successfully')
         except:
             messages.warning(request,'Area Not Added')
         return render(request,"admin-panel/add-area.html",locals())
-    
-
 
 class edit_area(View):
     def get(self,request,pid):
@@ -307,10 +304,8 @@ class edit_area(View):
         form = DonationAreaForm(request.POST)
         area = DonationArea.objects.get(id=pid)
         areaname = request.POST['areaname']
-        description = request.POST['description']
 
         area.areaname = areaname
-        area.description = description
         try:
             area.save()
             messages.success(request,'Area Added Successfully')
@@ -319,7 +314,6 @@ class edit_area(View):
             messages.warning(request,'Area Not Added')
         return render(request,"add-area.html")
     
-
 
 def manage_area(request):
     if not request.user.is_authenticated:
