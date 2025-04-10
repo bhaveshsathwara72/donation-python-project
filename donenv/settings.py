@@ -28,7 +28,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+# Set APPEND_SLASH to False
+APPEND_SLASH = False
 # Application definition
 
 INSTALLED_APPS = [

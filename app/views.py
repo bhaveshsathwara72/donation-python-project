@@ -777,7 +777,6 @@ def volunteer_donation_received(request):
     title = "Donation Received List"
     return render(request, "volunteer/donation-list.html",locals())
 
-
 def volunteer_donation_not_received(request):
     if not request.user.is_authenticated:
         return redirect("/login-volunteer")
@@ -796,7 +795,6 @@ def volunteer_donation_delivered(request):
     title = "Donation Delivered"
     return render(request, "volunteer/donation-list.html",locals())
 
-
 def donationrec_volunteer(request):
     if not request.user.is_authenticated:
         return redirect('/login-volunteer')
@@ -805,7 +803,6 @@ def donationrec_volunteer(request):
     donation = Donation.objects.filter(volunteer=volunteer,status="Donation Received").all()
     title = "Donation Received"
     return render(request, "volunteer/donation-list.html",locals())
-
 
 def donationnotrec_volunteer(request):
     if not request.user.is_authenticated:
@@ -822,4 +819,3 @@ def donationdelivered_volunteer(request):
     volunteer = Volunteer.objects.get(user=user)
     donation = Donation.objects.filter(volunteer=volunteer,status="Donation Delivered Successfully").all()
     return render(request, "volunteer/donation-list.html",locals())
-

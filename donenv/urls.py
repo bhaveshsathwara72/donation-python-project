@@ -66,8 +66,6 @@ urlpatterns = [
     path("volunteer/donation-list/donation-delivered", views.volunteer_donation_delivered, name="volunteer_donation_delivered"),
 
     
-
-
     path(
         "volunteer/donationcollection-detail/<int:pid>",
         views.donationcollection_detail.as_view(),

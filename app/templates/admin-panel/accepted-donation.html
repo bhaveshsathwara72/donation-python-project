@@ -8,15 +8,15 @@
         <thead class="table-dark">
             <tr class="text-center">
                 <th scope="col">#</th>
-                <th scope="col">Donation Name</th>
-                <th scope="col">Donation Date</th>
-                <th scope="col">Status</th>
-                <th scope="col">Action</th>
+                <th>Donation Name</th>
+                <th>Donation Date</th>
+                <th>Status</th>
+                <th>Action</th>
               </tr>
         </thead>
         <tbody>
           {% for i in donation %}
-          <tr>
+          <tr class="text-center">
                 <td>{{forloop.counter}}</td>
                 <td>{{i.donationname}}</td>
                 <td>{{i.donationdate}}</td>

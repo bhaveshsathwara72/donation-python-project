@@ -58,9 +58,9 @@
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle {% if request.path in collection_history_active_paths %}active{% endif %}" data-bs-toggle="dropdown"><i class="fa fa-info-circle me-2"></i>Collection History</a>
                     <div class="dropdown-menu bg-transparent border-0">
-                        <a href="{% url 'donationrec_volunteer' %}" class="dropdown-item {% if request.path == '/volunteer/donation-list/donationrec-volunteer/' %}active{% endif %}" style="color:white;">Donation Received</a>
-                        <a href="{% url 'donationnotrec_volunteer' %}" class="dropdown-item {% if request.path == '/volunteer/donation-list/donationnotrec-volunteer/' %}active{% endif %}" style="color:white;">Donation Not Received</a>
-                        <a href="{% url 'donationdelivered_volunteer' %}" class="dropdown-item {% if request.path == '/volunteer/donation-list/donationdelivered-volunteer/' %}active{% endif %}" style="color: white; .dropdown-item:hover {background-color:white; color: black;">Donation Delivered</a>
+                        <a href="{% url 'volunteer_donation_received' %}" class="dropdown-item {% if request.path == '/volunteer/donation-list/donationrec-volunteer/' %}active{% endif %}" style="color:white;">Donation Received</a>
+                        <a href="{% url 'volunteer_donation_not_received' %}" class="dropdown-item {% if request.path == '/volunteer/donation-list/donationnotrec-volunteer/' %}active{% endif %}" style="color:white;">Donation Not Received</a>
+                        <a href="{% url 'volunteer_donation_delivered' %}" class="dropdown-item {% if request.path == '/volunteer/donation-list/donationdelivered-volunteer/' %}active{% endif %}" style="color: white; .dropdown-item:hover {background-color:white; color: black;">Donation Delivered</a>
                     </div>
                 </div>
                 <a href="{% url 'profile_volunteer' %}" class="nav-item nav-link {% if request.path == '/volunteer/profile-volunteer/' %}active{% endif %}"><i class="fa fa-user me-2"></i>Profile</a>
