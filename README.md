@@ -1,6 +1,6 @@
 # Donation Management System
 
-A Python-based web application designed to streamline the process of managing donations. This system facilitates donor registrations, records donations, and provides administrative functionalities to oversee and manage donation activities efficiently.
+A Python-based web application designed to streamline the process of managing donations. This system facilitates donor registrations, records donations, and provides administrative functionalities to oversee and manage donation activities efficiently.
 
 ## Features
 
@@ -57,7 +57,7 @@ A Python-based web application designed to streamline the process of managing do
 
 ## Contributing
 
-Contributions are welcome! Please follow these steps:
+Contributions are welcome! Please follow these steps:
 
 1. **Fork the Repository**: Click the "Fork" button at the top right of this page.
 2. **Clone Your Fork**:
@@ -85,13 +85,13 @@ Contributions are welcome! Please follow these steps:
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [MIT License](LICENSE).
 
 ## Acknowledgements
 
 - Inspired by the need to simplify donation management processes.
-- Thanks to all contributors and users who support this project.
+- Thanks to all contributors and users who support this project.
 
 ---
 
-Feel free to customize this `README.md` further to match any specific functionalities or features unique to your project. 
+Feel free to customize this `README.md` further to match any specific functionalities or features unique to your project.
